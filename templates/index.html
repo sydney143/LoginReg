@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <title>Document</title>
+</head>
+<body>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{message}}</p>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+        <form action="/create_user" method="post" class=" p-3 col-3 mx-left card my-4 bg-light text-dark">
+            <h2 class="text-center text-primary">Register</h2>
+            <div class="form-group">
+                <label for="firstname">First Name:</label>
+                <input type="text" name="firstname" id="firstname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last Name:</label>
+                <input type="text" name="lastname" id="lastname" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="text" name="password" id="password" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="cpassword">Comfirm Password:</label>
+                <input type="text" name="cpassword" id="cpassword" class="form-control">
+            </div>   
+            <input type="submit" value="Register" class="btn btn-primary btn-outline-light">
+      
+</form>
+<form action="/login" method="post" class=" p-4 col-3 mx-left card my-5 bg-light text-dark">
+    <h2 class="text-center text-primary">Login</h2>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password" class="form-control">
+        <input type="submit" value="Login" class="btn btn-primary btn-outline-light">
+</div>
+</form>
+</body>
+</html>
